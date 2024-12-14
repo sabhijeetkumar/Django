@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+jeet and peep
+{% endblock %}
+
+{% block content %}
+
+<h1 class="text-center mt-4">Welcome to Peep</h1>
+
+<div class="text-center mt-5">
+    <a href="{% url 'list_peeps' %}" class="btn btn-primary">View All Peeps</a>
+    <a href="{% url 'create_peep' %}" class="btn btn-success">Create a New Peep</a>
+</div>
+
+{% endblock %}

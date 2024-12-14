@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+jeet and peep
+{% endblock %}
+
+{% block content %}
+
+<h1 class="text-center mt-4">Welcome to Peep</h1>
+<a class="btn btn-primary" href="{% url 'create_peep' %}">Create a Peep</a>
+
+<div class="container row gap-3">
+    {% for peep in peeps %}
+    <div class="card" style="width: 18rem;">
+        <img src="{{ peep.photo.url }}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{ peep.user.username }}</h5>
+            <p class="card-text">{{ peep.text }}</p>
+            <a href="{% url 'peep_edit' peep.id %}" class="btn btn-primary">Edit</a>
+            <a href="{% url 'peep_delete' peep.id %}" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
